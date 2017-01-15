@@ -1,52 +1,79 @@
 <html>
+
 <head>
     <title>Building ASPNet Core projects with MSBuild</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
         img {
             width: 70%;
             margin-left: 30px;
         }
+
+        .bg-info {
+            padding: 5px;
+        }
     </style>
 </head>
+
 <body>
-    
+
     <h1>New csproj format for ASPNetCore projects</h1>
-    
+
     <p>
-        These notes are relevant to the <a href="https://blogs.msdn.microsoft.com/dotnet/2016/12/12/updating-visual-studio-2017-rc-net-core-tooling-improvements/">new format</a>.
+        These are some notes that I made while trying to build the <a href="https://blogs.msdn.microsoft.com/dotnet/2016/12/12/updating-visual-studio-2017-rc-net-core-tooling-improvements/">new format</a>        of ASPNetCore MSBuild projects on Visual Studio Team Services.
     </p>
 
-<p>Open solution in VS2017 and Build</p>
+    <p class="bg-info">
+        <strong>TLDR;</strong>
+        <ul>
+            <li>Targeting the new MSBuild format requires MSBuild v15.</li>
+            <li>You can find v15 in the following folder if you have the latest version of VS installed:
+                <kbd>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</kbd></li>
+            <li>MSBuild v15 is not installed on the Hosted Build Agent on Visual Studio Team Services (<abbr title=" Visual Studio Team Services">VSTS</abbr>)</li>
+            <li>To build the new formatted projects on <abbr title=" Visual Studio Team Services">VSTS</abbr>, you will need to use a hosted build agent</li> 
+            <li>Keep an eye on the <abbr title=" Visual Studio Team Services">VSTS</abbr> <a href="https://www.visualstudio.com/en-us/docs/build/news/2016">release notes</a> to be notified when the agent is updated</li> 
+    </p>
 
-<img src="/aspnet_msbuild/2017-01-14_18-45-41.png" alt="Build from within VS2017" />
 
-<p>Solution builds OK</p>
+    <h2>My Steps</h2>
 
-<img src="/aspnet_msbuild/2017-01-14_18-46-19.png" alt="Build from within VS2017" />
+    <p>
+        Below is a list of steps that I followed while trying to get MSBuild v15 format building on 
+        <abbr title=" Visual Studio Team Services">VSTS</abbr>.
+    </p>
 
-<p>Run MSBuild from root folder of API project</p>
+    <p>Firstly I ensured that the solution would build in my VS2017 IDE</p>
 
-<img src="/aspnet_msbuild/2017-01-14_18-47-02.png" alt="Build from within VS2017" />
+    <img src="/aspnet_msbuild/2017-01-14_18-45-41.png" class="img-responsive"  alt="Build from within VS2017" />
 
-<p>Errors abound!</p>
+    <p>I was able to verify the the solution built.</p>
 
-<p>Add schema</p>
+    <img src="/aspnet_msbuild/2017-01-14_18-46-19.png" class="img-responsive"  alt="Build from within VS2017" />
 
-<img src="/aspnet_msbuild/add_schema.PNG" alt="Build from within VS2017" />
+    <p>Run MSBuild from root folder of API project</p>
 
-<p>New errors</p>
-    
-<img src="/aspnet_msbuild/new_errors.png" alt="Build from within VS2017" />
-    
-<p>Locate the VS2017 folder and add to PATH (to access MSBuild 15)</p>
-    
-<img src="/aspnet_msbuild/v15folder.png" alt="MSBuild 15 path" />
-    
-<p>After adding to PATH, open new console and run MSBuild</p>
-    
-<img src="/aspnet_msbuild/success.png" alt="Success!" />
-    
+    <img src="/aspnet_msbuild/2017-01-14_18-47-02.png" class="img-responsive"  alt="Build from within VS2017" />
+
+    <p>Errors abound!</p>
+
+    <p>Add schema</p>
+
+    <img src="/aspnet_msbuild/add_schema.PNG" class="img-responsive"  alt="Build from within VS2017" />
+
+    <p>New errors</p>
+
+    <img src="/aspnet_msbuild/new_errors.png" class="img-responsive"  alt="Build from within VS2017" />
+
+    <p>Locate the VS2017 folder and add to PATH (to access MSBuild 15)</p>
+
+    <img src="/aspnet_msbuild/v15folder.png" class="img-responsive"  alt="MSBuild 15 path" />
+
+    <p>After adding to PATH, open new console and run MSBuild</p>
+
+    <img src="/aspnet_msbuild/success.png" class="img-responsive"  alt="Success!" />
+
     <p>Success!</p>
 
 </body>
+
 </html>

@@ -58,17 +58,17 @@
 
         <p>Firstly I ensured that the solution would build in my VS2017 IDE</p>
 
-        <img src="/aspnet_msbuild/2017-01-14_18-45-41.png" class="img-responsive" alt="Build from within VS2017" />
+        <img src="/aspnet_msbuild/2017-01-14_18-45-41.png" class="img-responsive img-rounded" alt="Build from within VS2017" />
 
         <p>I was able to verify the the solution built.</p>
 
-        <img src="/aspnet_msbuild/2017-01-14_18-46-19.png" class="img-responsive" alt="Build from within VS2017" />
+        <img src="/aspnet_msbuild/2017-01-14_18-46-19.png" class="img-responsive img-rounded" alt="Build from within VS2017" />
 
         <p>Run MSBuild from root folder of my project.  I had MSBuild on my PATH at the following address: 
             <kbd>C:\Program Files (x86)\MSBuild\14.0\Bin</kbd>
         </p>
 
-        <img src="/aspnet_msbuild/2017-01-14_18-47-02.png" class="img-responsive" alt="Build from within VS2017" />
+        <img src="/aspnet_msbuild/2017-01-14_18-47-02.png" class="img-responsive img-rounded" alt="Build from within VS2017" />
 
         <p>Errors abound!</p>
 
@@ -86,11 +86,11 @@ en authored in the old 1.0 or 1.2 format, please convert it to MSBuild 2003 form
 
         <p>After locating the VS2017 folder (<kbd>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</kbd>), I added the v15 location to my PATH variable</p>
 
-        <img src="/aspnet_msbuild/v15folder.png" class="img-responsive" alt="MSBuild 15 path" />
+        <img src="/aspnet_msbuild/v15folder.png" class="img-responsive img-rounded" alt="MSBuild 15 path" />
 
         <p>After adding to PATH, I opened a new console and re-ran MSBuild</p>
 
-        <img src="/aspnet_msbuild/success.png" class="img-responsive" alt="Success!" />
+        <img src="/aspnet_msbuild/success.png" class="img-responsive img-rounded" alt="Success!" />
 
         <p>Success! The solution is now using MSBuild v15 to build the project successfully on my local machine</p>
 
@@ -98,11 +98,11 @@ en authored in the old 1.0 or 1.2 format, please convert it to MSBuild 2003 form
                 Solutions which comes with a set of pre-configured tasks for building and testing code.
         </p>
 
-        <img src="/aspnet_msbuild/ootb_build_definition.png" class="img-responsive" alt="OOTB VS Build Definition" />
+        <img src="/aspnet_msbuild/ootb_build_definition.png" class="img-responsive img-rounded" alt="OOTB VS Build Definition" />
 
         <p>I queued a new build and waited patiently for it to complete.  Fail!</p>
 
-        <img src="/aspnet_msbuild/vsts_fail.png" class="img-responsive" alt="vsts build failure errors" />
+        <img src="/aspnet_msbuild/vsts_fail.png" class="img-responsive img-rounded" alt="vsts build failure errors" />
 
         <div class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -116,7 +116,7 @@ PerformanceAnalyst.Core\PerformanceAnalyst.Core.csproj(1,1): Error MSB4041: The 
             as an option.
         </p>
 
-        <img src="/aspnet_msbuild/msbuildtask.png"  class="img-responsive" alt="msbuild task" />
+        <img src="/aspnet_msbuild/msbuildtask.PNG" class="img-responsive img-rounded" alt="msbuild task" />
 
         <p>
             I queued a new build... Fail!
@@ -132,7 +132,7 @@ Visual Studio version '15.0' not found. Looking for the latest version.
             point that I discovered that MSBuild 15 is not installed yet and, to continue, I would need to host and configure my own build agent.
             </p>
 
-        <img src="/aspnet_msbuild/must_use_custom_build_agent.png" class="img-responsive" alt="custom build agent" />
+        <img src="/aspnet_msbuild/must_use_custom_build_agent.png" class="img-responsive img-rounded" alt="custom build agent" />
 
 
     </div>

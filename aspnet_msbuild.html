@@ -62,7 +62,9 @@
 
         <img src="/aspnet_msbuild/2017-01-14_18-46-19.png" class="img-responsive" alt="Build from within VS2017" />
 
-        <p>Run MSBuild from root folder of API project</p>
+        <p>Run MSBuild from root folder of my project.  I had MSBuild on my PATH at the following address: 
+            <kbd>C:\Program Files (x86)\MSBuild\14.0\Bin</kbd>
+        </p>
 
         <img src="/aspnet_msbuild/2017-01-14_18-47-02.png" class="img-responsive" alt="Build from within VS2017" />
 
@@ -70,34 +72,66 @@
 
         <div class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> {{ TODO: Enter error text here }}
+            <span class="sr-only">Error:</span> 
+            C:\src\...\PerformanceAnalyst.Web.csproj(1,1): error MSB4041: The default
+ XML namespace of the project must be the MSBuild XML namespace. If the project is authored in the MSBuild 2003 format,
+ please add xmlns="http://schemas.microsoft.com/developer/msbuild/2003" to the &lt;Project> element. If the project has be
+en authored in the old 1.0 or 1.2 format, please convert it to MSBuild 2003 format.
         </div>
 
-        <p>Add schema</p>
+        <p><a href="https://twitter.com/digory/status/820153681978880001">I enquired on Twitter</a>, and
+        was given advice that I needed to use MSBuild 15</p> 
 
-        <img src="/aspnet_msbuild/add_schema.PNG" class="img-responsive" alt="Build from within VS2017" />
-
-        <p>New errors</p>
-
-        <div class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> {{ TODO: Enter error text here }}
-        </div>
-
-        <img src="/aspnet_msbuild/new_errors.png" class="img-responsive" alt="Build from within VS2017" />
-
-        <p>Locate the VS2017 folder and add to PATH (to access MSBuild 15)</p>
+        <p>After locating the VS2017 folder (<kbd>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</kbd>), I added the v15 location to my PATH variable</p>
 
         <img src="/aspnet_msbuild/v15folder.png" class="img-responsive" alt="MSBuild 15 path" />
 
-        <p>After adding to PATH, open new console and run MSBuild</p>
+        <p>After adding to PATH, I opened a new console and re-ran MSBuild</p>
 
         <img src="/aspnet_msbuild/success.png" class="img-responsive" alt="Success!" />
 
         <p>Success! The solution is now using MSBuild v15 to build the project successfully on my local machine</p>
 
-        <p>Next task was to push my code and configure a build task in VSTS I initially
+        <p>Next task was to push my code and configure a build task in VSTS.  I chose the 'out of the box' build definition for building Visual Studio
+                Solutions which comes with a set of pre-configured tasks for building and testing code.
         </p>
+
+        <img src="/aspnet_msbuild/ootb_build_definition.png" class="img-responsive" alt="OOTB VS Build Definition" />
+
+        <p>I queued a new build and waited patiently for it to complete.  Fail!</p>
+
+        <img src="/aspnet_msbuild/vsts_fail.png" class="img-responsive" alt="vsts build failure errors" />
+
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> 
+PerformanceAnalyst.Core\PerformanceAnalyst.Core.csproj (1, 1)
+PerformanceAnalyst.Core\PerformanceAnalyst.Core.csproj(1,1): Error MSB4041: The default XML namespace of the project must be the MSBuild XML namespace. If the project is authored in the MSBuild 2003 format, please add xmlns="http://schemas.microsoft.com/developer/msbuild/2003" to the <Project> element. If the project has been authored in the old 1.0 or 1.2 format, please convert it to MSBuild 2003 format.
+        </div>
+
+        <p>My conclusion was that the build agent did not have MSBuild v15 installed.  I hunted around and found 
+            a different MSBuild Task which allowed more fine-grained control over MSBuild and which listed MSBuild 15
+            as an option.
+        </p>
+
+        <img src="/aspnet_msbuild/msbuildtask.png"  class="img-responsive" alt="msbuild task" />
+
+        <p>
+            I queued a new build... Fail!
+        </p>
+
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> 
+Visual Studio version '15.0' not found. Looking for the latest version.
+        </div>
+        
+        <p>After failing I decided to track down <a href="https://www.visualstudio.com/en-us/docs/build/news/2016">the release notes for VSTS</a> to see what software is installed.  It was at this 
+            point that I discovered that MSBuild 15 is not installed yet and, to continue, I would need to host and configure my own build agent.
+            </p>
+
+        <img src="/aspnet_msbuild/must_use_custom_build_agent.png" class="img-responsive" alt="custom build agent" />
+
 
     </div>
 

@@ -90,11 +90,7 @@ en authored in the old 1.0 or 1.2 format, please convert it to MSBuild 2003 form
         <p><a href="https://twitter.com/digory/status/820153681978880001">I enquired on Twitter</a>, and
         was given advice that I needed to use MSBuild 15</p> 
 
-        <p>After locating the VS2017 folder (<kbd>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</kbd>), I added the v15 location to my PATH variable</p>
-
-        <img src="/aspnet_msbuild/v15folder.png" class="img-responsive img-rounded" alt="MSBuild 15 path" />
-
-        <p>After adding to PATH, I opened a new console and re-ran MSBuild</p>
+        <p>After adding the VS2017 folder to my PATH variable (<kbd>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin</kbd>), I opened a new console and re-ran MSBuild</p>
 
         <img src="/aspnet_msbuild/success.png" class="img-responsive img-rounded" alt="Success!" />
 
@@ -140,7 +136,21 @@ Visual Studio version '15.0' not found. Looking for the latest version.
 
         <img src="/aspnet_msbuild/must_use_custom_build_agent.png" class="img-responsive img-rounded" alt="custom build agent" />
 
+        <p>The next option was to look at doing a build using the dotnet CLI.  To use the dotnet CLI for MSBuild projects,  
+            <a href="https://github.com/dotnet/cli/blob/rel/1.0.0/Documentation/ProjectJsonToCSProj.md">requires .NET CLI preview 3
+            or greater</a>.  The current .NET CLI version is <a href="https://github.com/dotnet/cli">CLI Preview 4</a> which you can get from 
+            <a href="https://github.com/dotnet/core/blob/master/release-notes/preview4-download.md">here</a>.
+        </p>
 
+        <p>After installing Preview 4 on my machine, I confirmed that I was able to build my solution using <code>dotnet build</code> command.</p>
+
+         <p>While not confident, I thought it would be worth double-checking to see what version of the .NET CLI is installed on the VSTS 
+             Hosted Build Agent.  Sure enough, Preview 2 is the version that is currently installed - which works against project.json 
+             based projects.</p>
+
+        <img src="/aspnet_msbuild/dotnetcli_command.png" class="img-responsive img-rounded" alt="Preview 2" /> 
+
+        <p>At this point I see it is clear that, to continue with cutting edge .NET Core development will require me to setup my own build agent!</p>  
     </div>
 
 </body>

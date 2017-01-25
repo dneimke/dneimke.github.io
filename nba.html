@@ -1,0 +1,396 @@
+<html>
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<style>
+
+caption {
+    text-align: center;
+    color: black
+}
+
+table {
+    margin-top:50px;
+}
+
+button { color: white; }
+
+.strong { color: red }
+
+#button1 { background-color: #ff6600; }
+                                  
+#button2 { background-color: #ff0000; }
+
+#button3 { background-color: #660066; }
+
+#button4 { background-color: #008CBA; }
+
+h1 {
+    font-family: Arial Black, Gadget, sans-serif; 
+    text-align: center; 
+}
+
+p {
+    font-size: 17px;
+    padding: 20px;    
+}
+
+#buttons {
+    width:100%;
+}
+
+#buttons>button {
+    width:24%;
+    height:60px
+}
+
+.player-card { 
+    display:none;
+    border: double; 
+    width: 96.71%   
+}
+
+.player-image {
+    height: 300px;
+    width: 24%;
+}
+
+</style>
+<title>NBA Players Inside Info </title>
+</head>
+<body>
+
+<div>
+    <a class="hyperlink" href="#" data-player="westbrook" data-first="#ffa500" data-last='#0000ff'><img src="nba/westbrook.jpg" class="player-image" /></a>
+    <a class="hyperlink" href="#" data-player="harden" data-first="#808080" data-last="#ff0000"><img src="nba/harden.jpg" class="player-image" /></a>
+    <a class="hyperlink" href="#" data-player="cousins" data-first="#808080" data-last="#4b0082"><img src="nba/cousins.jpg" class="player-image" /></a>
+    <a class="hyperlink" href="#" data-player="towns" data-first="#228B22" data-last="#0000cd"><img src="nba/towns.jpg" class="player-image" /></a>
+</div>
+
+<div id="buttons">
+    <button id="button1" id="westbrook" data-player="westbrook" data-first="#ffa500" data-last='#0000ff'>Russell Westbrook</button>
+    <button id="button2" id="harden" data-player="harden" data-first="#808080" data-last="#ff0000">James Harden</button>  
+    <button id="button3" id="cousins" data-player="cousins" data-first="#808080" data-last="#4b0082">Demarcus Cousins</button>
+    <button id="button4" id="towns" data-player="towns" data-first="#228B22" data-last="#0000cd">Karl Anthony-Towns</button>
+</div>
+
+
+<div id="about-westbrook" class='player-card'>
+    <h1><span id="f-westbrook">Russell</span> <span id="l-westbrook"> Westbrook</span></h1>
+    <p>Russell Westbrook is a professional american basketball player who plays for the Oklahoma City Thunder (or OKC for short.)
+    Russell Westbrook was picked with the 4th pick in the 2008 NBA draft. Russell Westbrook is an absolute freak, in his nine seasons in the NBA he has only missed 69 games, this means that 
+    he has played in 631 games, where as, players that were drafted in the same year like Derrick Rose have only played
+    444 games.</p><p>Two of his most memorable awards are in 2015 and 2016  where he won the all star MVP. It is Westbrook's 9th year in the NBA playing for just the one NBA team. Other interesting
+    facts about Russell Westbrook are that he was brought up in California, he is 6 foot 3 inches and he has never worn the same outfit twice to a basketball game.    
+    
+
+<table class="table table-striped">
+   <caption><h3><strong>Rookie Year</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists</th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>15.3</td>
+    <td>5.3</td>
+    <td>4.9</td>
+    <td>82</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>2016/2017 Season</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists</th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>31.4</td>
+    <td>10.3</td>
+    <td>10.5</td>
+    <td>45</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>Draft</strong></h3></caption>
+  <tr>
+    <th>number player got drafted</th>
+    <th>number 1</th>
+    <th>number 2</th>
+    <th>number 3</th>
+    <th>number 4</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>players name</td>
+    <td>Derrick Rose</td>
+    <td>Michael Beasley</td>
+    <td>O.J Mayo</td>
+    <td><strong class="strong">Russell Westbrook</strong></td>
+  </tr>
+  <tr>
+    <td>Team(s)</td>
+    <td>New York, Chicago</td>
+    <td>Phoenix, Houston, Milwakee, Miami, Minesota</td>
+    <td>Dallas, Milwakee, Memephis</td>
+    <td><strong class="strong">Oklahoma</strong><td>
+  </tr>
+</table>    
+
+</p>
+</div> 
+
+
+<div id="about-harden" class='player-card'>
+    <h1><span id="f-harden">James</span><span id="l-harden"> Harden</span></h1>
+    <p>James Harden is a professional basketball player and he plays for the Houston Rockets. His first ever team was the Oklahoma City Thunder(or OKC for short)
+    but then OKC had to trade Harden because they didnt have enough cap space to resign Harden. The reason they couldn't resign Harden is because of Kendrik 
+    Perkins massive contract. The Thunder didn't have enough money to resign Harden on the max contract and thats all that Harden wanted, so rather than keeping a 
+    dynasty they traded him to the Rockets where he has become the best shooting guard in the league.</p><p> Harden was the 3rd pick in the 2009 NBA draft.
+    Some interesting facts about Harden are that he went to Arizona College, Harden didn't have a beard when he first got into the NBA and Hardens idol is Manu 
+    Ginobli.  
+  
+    <table class="table table-striped">
+   <caption><h3><strong>Rookie Year</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists</th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>15.3</td>
+    <td>5.3</td>
+    <td>4.9</td>
+    <td>82</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>2016/2017 Season</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists</th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>28.9</td>
+    <td>11.6</td>
+    <td>8.3</td>
+    <td>48</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>Draft</strong></h3></caption>
+  <tr>
+    <th>number player got drafted</th>
+    <th>number 1</th>
+    <th>number 2</th>
+    <th>number 3</th>
+  </tr>
+  <tr>
+    <td>players name</td>
+    <td>Blake Griffin</td>
+    <td>Hasheem Thabeet</td>
+    <td><strong class="strong">James Harden</strong>
+  </tr>
+  <tr>
+    <td>Team(s)</td>
+    <td>LA Clippers</td>
+    <td>Memphis, Oklahoma, Houston, Portland</td>
+    <td><strong class="strong">Houston, Oklahoma</strong>
+  </tr>
+</table>   
+
+</p>
+</div>
+
+
+<div id="about-cousins" class='player-card'>
+    <h1><span id="f-cousins">Demarcus</span><span id="l-cousins"> Cousins</span></h1>
+    <p>Demarcus Cousins is a professional American basketball player who plays for the Sacremento Kings.
+    Demarcus was drafted in the 2010 NBA draft with the 5th pick, he has played for the same team every year 
+    being the Sacramento Kings. Demarcus Cousins has played in 455 games missing just 77 games.</p><p>
+    Demarcus Cousins is an amazing talent however he is a notorious hot head as he already has 13 technical fouls in only 40 games. The most he has ever got in one season 
+    is 17 techs. Some interesting facts about Cousins is that his nickname is Boogie, he is 6 foot 11 inches tall and he went to college at Kentucky. 
+   
+    <table class="table table-striped">
+   <caption><h3><strong>Rookie Year</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists</th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>14.1</td>
+    <td>2.5</td>
+    <td>8.7</td>
+    <td>81</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>2016/2017 Season</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists</th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>28.0</td>
+    <td>4.4</td>
+    <td>10.1</td>
+    <td>43</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>Draft</strong></h3></caption>
+  <tr>
+    <th>number player got drafted</th>
+    <th>number 1</th>
+    <th>number 2</th>
+    <th>number 3</th>
+    <th>number 4</th>
+    <th>number 5</th>
+  </tr>
+  <tr>
+    <td>players name</td>
+    <td>John Wall</td>
+    <td>Avery Bradley</td>
+    <td>Derrick Favours</td>
+    <td>Wesley Johnson</td>
+    <td><strong class="strong">Demarcus Cousins</strong></td>
+  </tr>
+  <tr>
+    <td>Team(s)</td>
+    <td>Washington</td>
+    <td>Boston</td>
+    <td>New Jersey, Utah</td>
+    <td>LA Lakers, LA Clippers, Phoenix, Minesota</td>
+    <td><strong class="strong">Sacramento</strong></td>
+  </tr>
+</table>   
+ </p>
+</div>
+
+
+
+<div id="about-towns" class='player-card'>
+    <h1><span id="f-towns">Karl</span><span id="l-towns"> Anthony-Towns</span></h1>
+    <p>Karl Anthony-Towns is a professional basketball player who plays for the Minesota Timberwolves. Towns was the number one pick in the 2015/2016
+    NBA draft. Towns has played in 125 games and he started every single one of them. Towns has never missed a game.</p><p> Towns may not play on the best team but he has some good quality 
+    youth around him including players like Zach Lavine (two time dunk contest champion) and Andrew Wiggins (2014 rookie of the year.) Your in for some exciting basketball to come in the next 
+    5-6 years. Some interesting facts about Karl Anthony-Towns is that his nickname is KAT and Towns went to high school at St. Josephs in New Jersey. 
+
+ <table class="table table-striped">
+   <caption><h3><strong>Rookie Year</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists</th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>14.1</td>
+    <td>2.5</td>
+    <td>8.7</td>
+    <td>82</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>2016/2017 Season</strong></h3></caption>
+  <tr>
+    <th>points</th>
+    <th>assists/th>
+    <th>rebounds</th>
+    <th>games</th>
+  </tr>
+  <tr>
+    <td>22.3</td>
+    <td>2.9</td>
+    <td>12.0</td>
+    <td>44</td>
+  </tr>
+</table>
+
+
+<table class="table table-striped">
+   <caption><h3><strong>Draft</strong></h3></caption>
+  <tr>
+    <th>number player got drafted</th>
+    <th>number 1</th>
+    <th>number 2</th>
+    <th>number 3</th>
+  </tr>
+  <tr>
+    <td>players name</td>
+    <td><strong class="strong">Karl Anthony-Towns</strong></td>
+    <td>D'Angelo Russell</td>
+    <td>Jahlil Okafor</td>
+  </tr>
+  <tr>
+    <td>Team(s)</td>
+    <td><strong class="strong">Minesota</strong></td>
+    <td>LA Lakers</td>
+    <td>Philadelphia</td>
+  </tr>
+</table>
+
+</p>
+</div>
+
+
+<script>
+    $('button').click(function(e) {
+        var player = $(this).data('player');
+        var firstNameColor = $(this).data('first');
+        var lastNameColor = $(this).data('last');
+
+        $('.player-card').hide();
+        $('#about-' + player).show();
+        $('#f-' + player).css('color', firstNameColor);
+        $('#l-' + player).css('color', lastNameColor);
+    }); 
+
+
+     $('.hyperlink').click(function(e) {
+        var player = $(this).data('player');
+        var firstNameColor = $(this).data('first');
+        var lastNameColor = $(this).data('last');
+
+        $('.player-card').hide(); 
+        $('#about-' + player).show();
+        $('#f-' + player).css('color', firstNameColor);
+        $('#l-' + player).css('color', lastNameColor);     
+     });      
+</script>
+
+</body>
+</html>

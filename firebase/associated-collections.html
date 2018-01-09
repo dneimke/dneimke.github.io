@@ -72,6 +72,12 @@
 }
         </pre>
 
+            <p>This approach makes it easy to retrieve the carts for the user and also it is easy to
+                <code>Update</code> and
+                <code>Delete</code> them as you will already have the identifier for the item. However, as discussed in the Firestore documents,
+                this approach
+            </p>
+
         </section>
 
 
@@ -90,6 +96,48 @@
     "1": {
         "firstName": "Darren",
         "lastName": "Neimke"
+    } 
+}
+
+/carts/
+{
+    "a76h32": {
+        "userId": "1",
+        ...
+    },
+    "9iP7dR": {
+        "userId": "1",
+        ...
+    },
+    "Mkl54d": {
+        "userId": "2",
+        ...
+    } 
+}
+        </pre>
+
+        </section>
+
+
+        <section>
+            <h2>Option C
+                <small>Store carts in their own collection - and a reference to the Cart under the user</small>
+            </h2>
+
+            <p>
+                The following example shows carts stored in their own collection and a reference to the user carts under the user.
+            </p>
+
+            <pre>
+/users/
+{
+    "1": {
+        "firstName": "Darren",
+        "lastName": "Neimke",
+        "carts": [
+            "a76h32",
+            "9iP7dR"
+        ]
     } 
 }
 

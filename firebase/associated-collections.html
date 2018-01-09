@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Firestore - Associated Collections</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        img {
+            width: 70%;
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .bg-info {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1>Firestore - Associated Collections</h1>
+            <p>
+                Design tips for working with associated collections.
+            </p>
+
+        </div>
+
+        <div class="bg-info">
+
+            <span class="glyphicon-class">
+                <strong>Associated Collections</strong>
+            </span>
+            <p>How do we design data in Firestore when working with associated collections.</p>
+
+            <ul>
+                <li>
+                    <a href='https://firebase.google.com/docs/database/web/structure-data' target='_blank'>Per the design docs</a>, collections should be flat.</li>
+            </ul>
+        </div>
+
+        <section>
+            <h2>Option A
+                <small>Nest carts under a user</small>
+            </h2>
+
+            <p>
+                The following example shows carts nested under a user.
+            </p>
+
+            <pre>
+/users/
+{
+    "1": {
+        "firstName": "Darren",
+        "lastName": "Neimke",
+        "carts": [
+            "a76h32": {
+                ...
+            },
+            "9iP7dR": {
+                ...
+            },
+            "Mkl54d": {
+                ...
+            }
+        ]
+    } 
+}
+        </pre>
+
+        </section>
+
+
+        <section>
+            <h2>Option B
+                <small>Store carts in their own collection</small>
+            </h2>
+
+            <p>
+                The following example shows carts stored in their own collection with a userId property.
+            </p>
+
+            <pre>
+/users/
+{
+    "1": {
+        "firstName": "Darren",
+        "lastName": "Neimke"
+    } 
+}
+
+/carts/
+{
+    "a76h32": {
+        "userId": "1",
+        ...
+    },
+    "9iP7dR": {
+        "userId": "1",
+        ...
+    },
+    "Mkl54d": {
+        "userId": "2",
+        ...
+    } 
+}
+        </pre>
+
+        </section>
+
+
+    </div>
+
+</body>
+
+</html>

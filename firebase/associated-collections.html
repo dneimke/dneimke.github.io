@@ -26,20 +26,23 @@
             <p>
                 Design tips for working with associated collections.
             </p>
-
         </div>
 
         <div class="bg-info">
-
             <span class="glyphicon-class">
                 <strong>Associated Collections</strong>
             </span>
-            <p>How do we design data in Firestore when working with associated collections.</p>
+            <p>
+                The topic for this article is how to design data in Firestore when working with associated collections so that it is efficient
+                to retrieve and easy to work with for CRUD data operations.
+            </p>
 
-            <ul>
-                <li>
-                    <a href='https://firebase.google.com/docs/database/web/structure-data' target='_blank'>Per the design docs</a>, collections should be flat.</li>
-            </ul>
+            <p>
+                For the purpose of this article, we will assume that we are working with User documents which have a relationship to a collection
+                of Cart documents. The article will discuss 3 design alternatives for modeling the data and look at the pros
+                and cons for each design.
+            </p>
+
         </div>
 
         <section>
@@ -47,9 +50,7 @@
                 <small>Nest carts under a user</small>
             </h2>
 
-            <p>
-                The following example shows carts nested under a user.
-            </p>
+            <p>The following example shows carts nested under a user.</p>
 
             <pre>
 /users/
@@ -72,12 +73,25 @@
 }
         </pre>
 
-            <p>This approach makes it easy to retrieve the carts for the user and also it is easy to
-                <code>Update</code> and
-                <code>Delete</code> them as you will already have the identifier for the item. However, as discussed in the Firestore documents,
-                this approach
+            <p>
+                This design makes it easy to
+                <code>retrieve</code>,
+                <code>update</code>, and
+                <code>delete</code> the carts for a user. However,
+                <a href='https://firebase.google.com/docs/database/web/structure-data' target='_blank'>as discussed in the Firestore docs</a>, every request of a
+                <code>User</code> will result in the cart data also being returned with the payload.
             </p>
 
+            <p>
+                Another consideration for this approach is that it makes retrieving individual carts for difficult as you need the Id of
+                both the user and the cart in order to locate the cart document.
+            </p>
+
+            <h3>Example</h3>
+            <p>
+                Refer to the following sample to see example code for working with this style of lists:
+                <a href='https://fire-playground-1d37c.firebaseapp.com/nested-collection'>Nested Collections</a>
+            </p>
         </section>
 
 

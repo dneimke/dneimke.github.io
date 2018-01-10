@@ -46,7 +46,7 @@
         </div>
 
         <section>
-            <h2>Option A
+            <h2>Approach A
                 <small>Nest carts under a user</small>
             </h2>
 
@@ -72,31 +72,43 @@
     } 
 }
         </pre>
-
+            <h3>Considerations</h3>
             <p>
-                This design makes it easy to
+                In order to
                 <code>retrieve</code>,
                 <code>update</code>, and
-                <code>delete</code> the carts for a user. However,
-                <a href='https://firebase.google.com/docs/database/web/structure-data' target='_blank'>as discussed in the Firestore docs</a>, every request of a
+                <code>delete</code> the carts using this design, you will first need to know the Id of the owner user.
+            </p>
+            <p>
+                Once you have a reference to the items and the user, updating them
+                <code>updating</code> or
+                <code>deleting</code> them is relatively straightforward as you are working with an Id and a
+                <code>DocumentReference</code> at that point.</p>
+            <p>
+                <a href='https://firebase.google.com/docs/database/web/structure-data' target='_blank'>As discussed </a> in the Firestore docs, every request of a
                 <code>User</code> will result in the cart data also being returned with the payload.
             </p>
 
             <p>
-                Another consideration for this approach is that it makes retrieving individual carts for difficult as you need the Id of
-                both the user and the cart in order to locate the cart document.
+                However, this approach makes retrieving individual carts difficult as you need the Id of both the user and the cart in order
+                to locate the cart document. So it would be difficult to rely solely on this approach if you wanted to have
+                the ability to share carts with others.
             </p>
 
             <h3>Example</h3>
             <p>
-                Refer to the following sample to see example code for working with this style of lists:
-                <a href='https://fire-playground-1d37c.firebaseapp.com/nested-collection'>Nested Collections</a>
+                <ul>
+                    <li>
+                        <a href='https://fire-playground-1d37c.firebaseapp.com/nested-collection'>Nested Collections</a>
+                    </li>
+                </ul>
+
             </p>
         </section>
 
 
         <section>
-            <h2>Option B
+            <h2>Approach B
                 <small>Store carts in their own collection</small>
             </h2>
 
